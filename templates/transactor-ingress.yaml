@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: huly-transactor-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    external-dns.alpha.kubernetes.io/hostname: {{ .Values.ingress.transactorDomain }}
+    kubernetes.io/ingress.class: haproxy
+    haproxy-ingress.github.io/rewrite-target: /
+spec:
+  tls:
+    - hosts:
+        - {{ .Values.ingress.transactorDomain }}
+      secretName: {{ regexReplaceAll "\\." .Values.ingress.transactorDomain "-" }}-tls
+  rules:
+    - host: {{ .Values.ingress.transactorDomain }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: transactor
+                port:
+                  number: 3333
