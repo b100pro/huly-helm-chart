@@ -34,12 +34,12 @@ spec:
             - name: MONGO_URL
               value: mongodb://mongodb:27017
             - name: SECRET
-              value: secret
+              value: {{ .Values.account.serverSecret }}
             - name: TRANSACTOR_URL
               value: ws://transactor:3333
             - name: UPLOAD_URL
               value: /files
-          image: hardcoreeng/collaborator:v0.6.221
+          image: hardcoreeng/collaborator:v0.6.238-staging
           name: collaborator
           ports:
             - containerPort: 3078

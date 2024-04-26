@@ -44,10 +44,10 @@ spec:
             - name: SERVER_PORT
               value: "3000"
             - name: SERVER_SECRET
-              value: secret
+              value: {{ .Values.account.serverSecret }}
             - name: TRANSACTOR_URL
               value: ws://transactor:3333
-          image: hardcoreeng/account:v0.6.221
+          image: hardcoreeng/account:v0.6.238-staging
           imagePullPolicy: IfNotPresent
           name: account
           ports:

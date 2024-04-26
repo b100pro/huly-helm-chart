@@ -48,7 +48,7 @@ spec:
             - name: SERVER_PORT
               value: "8080"
             - name: SERVER_SECRET
-              value: secret
+              value: {{ .Values.account.serverSecret }}
             - name: TELEGRAM_URL
               value: http://{{ .Values.ingress.domain }}:8086
             - name: TITLE
@@ -57,7 +57,9 @@ spec:
               value: wss://{{ .Values.ingress.transactorDomain }}
             - name: UPLOAD_URL
               value: /files
-          image: hardcoreeng/front:v0.6.221
+            - name: MONGO_URL
+              value: mongodb://mongodb:27017
+          image: hardcoreeng/front:v0.6.238-staging
           name: front
           ports:
             - containerPort: 8080

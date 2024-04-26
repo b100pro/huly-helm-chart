@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: rekoni
-          image: hardcoreeng/rekoni-service:v0.6.236
+          image: hardcoreeng/rekoni-service:v0.6.238-staging
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 4004

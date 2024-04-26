@@ -50,8 +50,12 @@ spec:
             - name: SERVER_PROVIDER
               value: ws
             - name: SERVER_SECRET
-              value: secret
-          image: hardcoreeng/transactor:v0.6.221
+              value: {{ .Values.account.serverSecret }}
+            - name: ELASTIC_INDEX_NAME
+              value: local_storage_index
+            - name: UPLOAD_URL
+              value: /files
+          image: hardcoreeng/transactor:v0.6.238-staging
           name: transactor
           ports:
             - containerPort: 3333
