@@ -36,7 +36,7 @@ spec:
             - name: SECRET
               value: {{ .Values.account.serverSecret }}
             - name: TRANSACTOR_URL
-              value: wss://huly-transactor.logicamp.tech
+              value: wss://{{ .Values.ingress.transactorDomain }}
             - name: UPLOAD_URL
               value: /files
           image: hardcoreeng/collaborator:v0.6.288

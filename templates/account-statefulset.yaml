@@ -46,7 +46,7 @@ spec:
             - name: SERVER_SECRET
               value: {{ .Values.account.serverSecret }}
             - name: TRANSACTOR_URL
-              value: wss://huly-transactor.logicamp.tech
+              value: wss://{{ .Values.ingress.transactorDomain }}
           image: hardcoreeng/account:v0.6.288
           imagePullPolicy: IfNotPresent
           name: account
