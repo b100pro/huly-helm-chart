@@ -39,13 +39,22 @@ spec:
               value: http://localhost:8082
             - name: http.cors.enabled
               value: "true"
+            - name: "xpack.security.enabled"
+              value: "false"
+            - name: "xpack.security.enrollment.enabled"
+              value: "false"
           image: elasticsearch:8.13.4
-          livenessProbe:
-            exec:
-              command:
-                - curl -s http://localhost:9200/_cluster/health | grep -vq '"status":"red"'
-            failureThreshold: 10
-            periodSeconds: 20
+          readinessProbe:
+              exec:
+                command:
+                - bash
+                - -c
+                - "curl -s http://localhost:9200 >/dev/null || exit 1"
+              failureThreshold: 3
+              initialDelaySeconds: 10
+              periodSeconds: 12
+              successThreshold: 1
+              timeoutSeconds: 12
           name: elastic
           ports:
             - containerPort: 9200

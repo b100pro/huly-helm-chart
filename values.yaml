@@ -1,5 +1,6 @@
 ingress:
   domain: huly.example.com
+  accountDomain: huly-account.example.com
   collaboratorDomain: huly-collaborator.example.com
   transactorDomain: huly-transactor.example.com
 account:

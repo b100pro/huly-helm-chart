@@ -6,18 +6,18 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     external-dns.alpha.kubernetes.io/hostname: {{ .Values.ingress.domain }}
     kubernetes.io/ingress.class: haproxy
-    haproxy.org/path-rewrite: /accounts/(.*) /\1
+    # haproxy.org/path-rewrite: /accounts/(.*) /\1
     haproxy-ingress.github.io/rewrite-target: /
 spec:
   tls:
     - hosts:
-        - {{ .Values.ingress.domain }}
+        - {{ .Values.ingress.accountDomain }}
       secretName: {{ regexReplaceAll "\\." .Values.ingress.domain "-" }}-tls
   rules:
-    - host: {{ .Values.ingress.domain }}
+    - host: {{ .Values.ingress.accountDomain }}
       http:
         paths:
-          - path: /accounts
+          - path: /
             pathType: Prefix
             backend:
               service:

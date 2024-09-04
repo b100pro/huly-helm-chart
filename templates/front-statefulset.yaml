@@ -22,7 +22,7 @@ spec:
       containers:
         - env:
             - name: ACCOUNTS_URL
-              value: https://{{ .Values.ingress.domain }}/accounts/
+              value: https://{{ .Values.ingress.accountDomain }}/
             - name: CALENDAR_URL
               value: http://{{ .Values.ingress.domain }}:8095
             - name: COLLABORATOR_API_URL
