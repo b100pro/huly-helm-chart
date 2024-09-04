@@ -22,7 +22,7 @@ spec:
       containers:
         - env:
             - name: ACCOUNTS_URL
-              value: https://{{ .Values.ingress.domain }}/accounts
+              value: https://{{ .Values.ingress.domain }}/accounts/
             - name: CALENDAR_URL
               value: http://{{ .Values.ingress.domain }}:8095
             - name: COLLABORATOR_API_URL
@@ -59,7 +59,7 @@ spec:
               value: /files
             - name: MONGO_URL
               value: mongodb://mongodb:27017
-          image: hardcoreeng/front:v0.6.238-staging
+          image: hardcoreeng/front:v0.6.288
           name: front
           ports:
             - containerPort: 8080

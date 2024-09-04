@@ -39,7 +39,7 @@ spec:
               value: http://localhost:8082
             - name: http.cors.enabled
               value: "true"
-          image: elasticsearch:7.14.2
+          image: elasticsearch:8.13.4
           livenessProbe:
             exec:
               command:

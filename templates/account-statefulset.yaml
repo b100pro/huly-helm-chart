@@ -46,8 +46,8 @@ spec:
             - name: SERVER_SECRET
               value: {{ .Values.account.serverSecret }}
             - name: TRANSACTOR_URL
-              value: ws://transactor:3333
-          image: hardcoreeng/account:v0.6.238-staging
+              value: wss://huly-transactor.logicamp.tech
+          image: hardcoreeng/account:v0.6.288
           imagePullPolicy: IfNotPresent
           name: account
           ports:

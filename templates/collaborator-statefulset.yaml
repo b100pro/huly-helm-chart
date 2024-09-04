@@ -36,10 +36,10 @@ spec:
             - name: SECRET
               value: {{ .Values.account.serverSecret }}
             - name: TRANSACTOR_URL
-              value: ws://transactor:3333
+              value: wss://huly-transactor.logicamp.tech
             - name: UPLOAD_URL
               value: /files
-          image: hardcoreeng/collaborator:v0.6.238-staging
+          image: hardcoreeng/collaborator:v0.6.288
           name: collaborator
           ports:
             - containerPort: 3078

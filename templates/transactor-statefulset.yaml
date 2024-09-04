@@ -55,7 +55,7 @@ spec:
               value: local_storage_index
             - name: UPLOAD_URL
               value: /files
-          image: hardcoreeng/transactor:v0.6.238-staging
+          image: hardcoreeng/transactor:v0.6.288
           name: transactor
           ports:
             - containerPort: 3333
