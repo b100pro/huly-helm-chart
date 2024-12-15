@@ -3,11 +3,11 @@
 set below values and install the helm chart
 
 - `ingress.domain`
-- `ingress.collaboratorDomain`
-- `ingress.transactorDomain`
-- `ingress.accountDomain`
-- `ingress.statsDomain`
-- `ingress.rekoniDomain`
+- `ingress.collaborator.domain`
+- `ingress.transactor.domain`
+- `ingress.account.domain`
+- `ingress.stats.domain`
+- `ingress.rekoni.domain`
 - `account.serverSecret`
 
 ```bash

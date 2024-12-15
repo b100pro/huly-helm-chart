@@ -22,13 +22,13 @@ spec:
       containers:
         - env:
             - name: ACCOUNTS_URL
-              value: https://{{ .Values.ingress.accountDomain }}/
+              value: https://{{ .Values.ingress.account.domain }}/
             - name: CALENDAR_URL
               value: http://{{ .Values.ingress.domain }}:8095
             - name: COLLABORATOR_API_URL
-              value: https://{{ .Values.ingress.collaboratorDomain }}
+              value: https://{{ .Values.ingress.collaborator.domain }}
             - name: COLLABORATOR_URL
-              value: wss://{{ .Values.ingress.collaboratorDomain }}
+              value: wss://{{ .Values.ingress.collaborator.domain }}
             - name: DEFAULT_LANGUAGE
               value: en
             - name: ELASTIC_URL
@@ -44,7 +44,7 @@ spec:
             - name: MINIO_SECRET_KEY
               value: minioadmin
             - name: REKONI_URL
-              value: https://{{ .Values.ingress.rekoniDomain }}
+              value: https://{{ .Values.ingress.rekoni.domain }}
             - name: SERVER_PORT
               value: "8080"
             - name: SERVER_SECRET

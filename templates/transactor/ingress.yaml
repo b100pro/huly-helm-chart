@@ -9,10 +9,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - {{ .Values.ingress.transactorDomain }}
-      secretName: {{ regexReplaceAll "\\." .Values.ingress.transactorDomain "-" }}-tls
+        - {{ .Values.ingress.transactor.domain }}
+      secretName: {{ regexReplaceAll "\\." .Values.ingress.transactor.domain "-" }}-tls
   rules:
-    - host: {{ .Values.ingress.transactorDomain }}
+    - host: {{ .Values.ingress.transactor.domain }}
       http:
         paths:
           - path: /

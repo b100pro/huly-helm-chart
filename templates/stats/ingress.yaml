@@ -3,16 +3,16 @@ kind: Ingress
 metadata:
   name: huly-stats-ingress
   annotations:
-    {{- with .Values.ingress.annotations }}
+    {{- with .Values.ingress.stats.annotations }}
     {{- toYaml . | nindent 4 }}
     {{- end }}
 spec:
   tls:
     - hosts:
-        - {{ .Values.ingress.statsDomain }}
-      secretName: {{ regexReplaceAll "\\." .Values.ingress.statsDomain "-" }}-tls
+        - {{ .Values.ingress.stats.domain }}
+      secretName: {{ regexReplaceAll "\\." .Values.ingress.stats.domain "-" }}-tls
   rules:
-    - host: {{ .Values.ingress.statsDomain }}
+    - host: {{ .Values.ingress.stats.domain }}
       http:
         paths:
           - path: /

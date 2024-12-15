@@ -21,7 +21,7 @@ spec:
             - name: STATS_URL
               value: http://stats:4900
             - name: TRANSACTOR_URL
-              value: ws://transactor;wss://{{ .Values.ingress.transactorDomain }}/
+              value: ws://transactor;wss://{{ .Values.ingress.transactor.domain }}/
             - name: STORAGE_CONFIG
               valueFrom:
                 secretKeyRef:
