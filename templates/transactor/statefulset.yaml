@@ -55,7 +55,16 @@ spec:
               value: local_storage_index
             - name: UPLOAD_URL
               value: /files
-          image: hardcoreeng/transactor:v0.6.288
+            - name: DB_URL
+              value: mongodb://mongodb:27017
+            - name: FULLTEXT_URL
+              value: http://fulltext:4700
+            - name: STORAGE_CONFIG
+              valueFrom:
+                secretKeyRef:
+                  name: huly-secret
+                  key: STORAGE_CONFIG
+          image: hardcoreeng/transactor:v0.6.377
           name: transactor
           ports:
             - containerPort: 3333

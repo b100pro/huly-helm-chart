@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: huly-rekoni-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    external-dns.alpha.kubernetes.io/hostname: {{ .Values.ingress.rekoniDomain }}
+    kubernetes.io/ingress.class: haproxy
+spec:
+  tls:
+    - hosts:
+        - {{ .Values.ingress.rekoniDomain }}
+      secretName: {{ regexReplaceAll "\\." .Values.ingress.rekoniDomain "-" }}-tls
+  rules:
+    - host: {{ .Values.ingress.rekoniDomain }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: rekoni
+                port:
+                  number: 4004

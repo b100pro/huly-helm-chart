@@ -1,8 +1,7 @@
 name: huly
 description: A generated Helm Chart for huly from Skippbox Kompose
-version: 0.0.1
+version: 0.1.0
 apiVersion: v2
 keywords:
   - huly
-sources:
-home:
+appVersion: 0.6.377

@@ -3,5 +3,7 @@ ingress:
   accountDomain: huly-account.example.com
   collaboratorDomain: huly-collaborator.example.com
   transactorDomain: huly-transactor.example.com
+  statsDomain: huly-stats.example.com
+  rekoniDomain: huly-rekoni.example.com
 account:
-  serverSecret: secret
+  serverSecret: <change-me>

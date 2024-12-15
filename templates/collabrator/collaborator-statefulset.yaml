@@ -36,10 +36,10 @@ spec:
             - name: SECRET
               value: {{ .Values.account.serverSecret }}
             - name: TRANSACTOR_URL
-              value: wss://{{ .Values.ingress.transactorDomain }}
+              value: ws://transactor;wss://{{ .Values.ingress.transactorDomain }}/
             - name: UPLOAD_URL
               value: /files
-          image: hardcoreeng/collaborator:v0.6.288
+          image: hardcoreeng/collaborator:v0.6.377
           name: collaborator
           ports:
             - containerPort: 3078

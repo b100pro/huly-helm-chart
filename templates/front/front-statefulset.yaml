@@ -44,7 +44,7 @@ spec:
             - name: MINIO_SECRET_KEY
               value: minioadmin
             - name: REKONI_URL
-              value: https://{{ .Values.ingress.domain }}/rekoni
+              value: https://{{ .Values.ingress.rekoniDomain }}
             - name: SERVER_PORT
               value: "8080"
             - name: SERVER_SECRET
@@ -53,13 +53,13 @@ spec:
               value: http://{{ .Values.ingress.domain }}:8086
             - name: TITLE
               value: Huly Self Hosted
-            - name: TRANSACTOR_URL
-              value: wss://{{ .Values.ingress.transactorDomain }}
             - name: UPLOAD_URL
               value: /files
             - name: MONGO_URL
               value: mongodb://mongodb:27017
-          image: hardcoreeng/front:v0.6.288
+            - name: STATS_URL
+              value: http://stats:4900
+          image: hardcoreeng/front:v0.6.377
           name: front
           ports:
             - containerPort: 8080

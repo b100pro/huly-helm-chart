@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: huly-stats-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    external-dns.alpha.kubernetes.io/hostname: {{ .Values.ingress.statsDomain }}
+    kubernetes.io/ingress.class: haproxy
+spec:
+  tls:
+    - hosts:
+        - {{ .Values.ingress.statsDomain }}
+      secretName: {{ regexReplaceAll "\\." .Values.ingress.statsDomain "-" }}-tls
+  rules:
+    - host: {{ .Values.ingress.statsDomain }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: stats
+                port:
+                  number: 4900

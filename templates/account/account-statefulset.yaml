@@ -28,7 +28,7 @@ spec:
             - name: ENDPOINT_URL
               value: wss://{{ .Values.ingress.transactorDomain }}
             - name: FRONT_URL
-              value: http://front:8080
+              value: https://{{ .Values.ingress.domain }}
             - name: INIT_WORKSPACE
               value: demo-tracker
             - name: MINIO_ACCESS_KEY
@@ -46,8 +46,10 @@ spec:
             - name: SERVER_SECRET
               value: {{ .Values.account.serverSecret }}
             - name: TRANSACTOR_URL
-              value: wss://{{ .Values.ingress.transactorDomain }}
-          image: hardcoreeng/account:v0.6.288
+              value: ws://transactor;wss://{{ .Values.ingress.transactorDomain }}/
+            - name: DB_URL
+              value: mongodb://mongodb:27017
+          image: hardcoreeng/account:v0.6.377
           imagePullPolicy: IfNotPresent
           name: account
           ports:
