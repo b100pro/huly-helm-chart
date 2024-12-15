@@ -3,9 +3,9 @@ kind: Ingress
 metadata:
   name: huly-collaborator-ingress
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
-    external-dns.alpha.kubernetes.io/hostname: {{ .Values.ingress.collaboratorDomain }}
-    kubernetes.io/ingress.class: haproxy
+    {{- with .Values.ingress.annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
 spec:
   tls:
     - hosts:

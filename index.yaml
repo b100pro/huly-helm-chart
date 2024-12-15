@@ -3,13 +3,24 @@ entries:
   huly:
   - apiVersion: v2
     appVersion: 0.6.377
-    created: "2024-12-16T01:31:31.312878918+03:30"
+    created: "2024-12-16T01:46:26.095657203+03:30"
     description: Helm chart for huly
-    digest: b0cffa79c812f66f2e9a1871010c5bcc75f3fc8897fc1089c89093c7243a0929
+    digest: 13871a5884f73572fd164fb123225cac9d34540d8989fbeeeea98e9a9d71aebe
+    keywords:
+    - huly
+    name: huly
+    urls:
+    - huly-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 0.6.377
+    created: "2024-12-16T01:46:26.090578588+03:30"
+    description: Helm chart for huly
+    digest: d448bf0ec87ecd31923bdb931289c5f638c1e55713fb64e7f79822e873d547be
     keywords:
     - huly
     name: huly
     urls:
     - huly-0.1.0.tgz
     version: 0.1.0
-generated: "2024-12-16T01:31:31.310289503+03:30"
+generated: "2024-12-16T01:46:26.086821553+03:30"

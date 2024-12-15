@@ -3,10 +3,9 @@ kind: Ingress
 metadata:
   name: huly-transactor-ingress
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
-    external-dns.alpha.kubernetes.io/hostname: {{ .Values.ingress.transactorDomain }}
-    kubernetes.io/ingress.class: haproxy
-    haproxy-ingress.github.io/rewrite-target: /
+    {{- with .Values.ingress.annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
 spec:
   tls:
     - hosts:

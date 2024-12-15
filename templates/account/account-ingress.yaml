@@ -3,11 +3,9 @@ kind: Ingress
 metadata:
   name: huly-account-ingress
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
-    external-dns.alpha.kubernetes.io/hostname: {{ .Values.ingress.accountDomain }}
-    kubernetes.io/ingress.class: haproxy
-    # haproxy.org/path-rewrite: /accounts/(.*) /\1
-    haproxy-ingress.github.io/rewrite-target: /
+    {{- with .Values.ingress.annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
 spec:
   tls:
     - hosts:
