@@ -1,0 +1,15 @@
+apiVersion: v1
+entries:
+  huly:
+  - apiVersion: v2
+    appVersion: 0.6.377
+    created: "2024-12-16T02:04:24.733233279+03:30"
+    description: Helm chart for huly
+    digest: c2ecaf43bf33112d1e87350c729aede9ae7526ea13457b0e3c2c1eb22b2bef0b
+    keywords:
+    - huly
+    name: huly
+    urls:
+    - huly/huly-0.1.2.tgz
+    version: 0.1.2
+generated: "2024-12-16T02:04:24.732733094+03:30"

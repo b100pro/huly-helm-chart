@@ -1,0 +1,7 @@
+name: huly
+description: Helm chart for huly
+version: 0.1.2
+apiVersion: v2
+keywords:
+  - huly
+appVersion: 0.6.377

@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: huly-rekoni-ingress
+  annotations:
+    {{- with .Values.ingress.rekoni.annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+spec:
+  tls:
+    - hosts:
+        - {{ .Values.ingress.rekoni.domain }}
+      secretName: {{ regexReplaceAll "\\." .Values.ingress.rekoni.domain "-" }}-tls
+  rules:
+    - host: {{ .Values.ingress.rekoni.domain }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: rekoni
+                port:
+                  number: 4004

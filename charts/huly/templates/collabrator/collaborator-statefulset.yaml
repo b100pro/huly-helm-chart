@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -c -o huly --controller statefulset
+    kompose.version: 1.32.0 (HEAD)
+  labels:
+    io.kompose.service: collaborator
+  name: collaborator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: collaborator
+  serviceName: collaborator
+  template:
+    metadata:
+      labels:
+        io.kompose.network/huly-selfhost-default: "true"
+        io.kompose.service: collaborator
+    spec:
+      containers:
+        - env:
+            - name: ACCOUNTS_URL
+              value: http://account:3000
+            - name: COLLABORATOR_PORT
+              value: "3078"
+            - name: MINIO_ACCESS_KEY
+              value: minioadmin
+            - name: MINIO_ENDPOINT
+              value: minio
+            - name: MINIO_SECRET_KEY
+              value: minioadmin
+            - name: MONGO_URL
+              value: mongodb://mongodb:27017
+            - name: SECRET
+              value: {{ .Values.account.serverSecret }}
+            - name: TRANSACTOR_URL
+              value: ws://transactor;wss://{{ .Values.ingress.transactor.domain }}/
+            - name: UPLOAD_URL
+              value: /files
+          image: hardcoreeng/collaborator:v0.6.377
+          name: collaborator
+          ports:
+            - containerPort: 3078
+              hostPort: 3078
+              protocol: TCP
+      restartPolicy: Always

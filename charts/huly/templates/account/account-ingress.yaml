@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: huly-account-ingress
+  annotations:
+    {{- with .Values.ingress.rekoni.annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+spec:
+  tls:
+    - hosts:
+        - {{ .Values.ingress.account.domain }}
+      secretName: {{ regexReplaceAll "\\." .Values.ingress.account.domain "-" }}-tls
+  rules:
+    - host: {{ .Values.ingress.account.domain }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: account
+                port:
+                  number: 3000
