@@ -1,6 +1,6 @@
 name: huly
 description: Helm chart for huly
-version: 0.1.2
+version: 0.2.0
 apiVersion: v2
 keywords:
   - huly
