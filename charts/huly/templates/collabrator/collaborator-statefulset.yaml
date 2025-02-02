@@ -39,7 +39,7 @@ spec:
               value: ws://transactor;wss://{{ .Values.ingress.transactor.domain }}/
             - name: UPLOAD_URL
               value: /files
-          image: hardcoreeng/collaborator:v0.6.377
+          image: hardcoreeng/collaborator:v0.6.423
           name: collaborator
           ports:
             - containerPort: 3078

@@ -49,7 +49,7 @@ spec:
               value: ws://transactor;wss://{{ .Values.ingress.transactor.domain }}/
             - name: DB_URL
               value: mongodb://mongodb:27017
-          image: hardcoreeng/account:v0.6.377
+          image: hardcoreeng/account:v0.6.423
           imagePullPolicy: IfNotPresent
           name: account
           ports:

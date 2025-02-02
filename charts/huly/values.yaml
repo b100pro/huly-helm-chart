@@ -1,32 +1,16 @@
 ingress:
-  domain: huly.example.com
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
     kubernetes.io/ingress.class: haproxy
   account:
     domain: huly-account.example.com
-    annotations:
-      cert-manager.io/cluster-issuer: letsencrypt-prod
-      kubernetes.io/ingress.class: haproxy
   collaborator:
     domain: huly-collaborator.example.com
-    annotations:
-      cert-manager.io/cluster-issuer: letsencrypt-prod
-      kubernetes.io/ingress.class: haproxy
-  transactor:
-    domain: huly-transactor.example.com
-    annotations:
-      cert-manager.io/cluster-issuer: letsencrypt-prod
-      kubernetes.io/ingress.class: haproxy
-  stats:
-    domain: huly-stats.example.com
-    annotations:
-      cert-manager.io/cluster-issuer: letsencrypt-prod
-      kubernetes.io/ingress.class: haproxy
+  domain: huly.example.com
   rekoni:
     domain: huly-rekoni.example.com
-    annotations:
-      cert-manager.io/cluster-issuer: letsencrypt-prod
-      kubernetes.io/ingress.class: haproxy
+  stats:
+    domain: huly-stats.example.com
+  transactor:
+    domain: huly-transactor.example.com
 account:
   serverSecret: <change-me>

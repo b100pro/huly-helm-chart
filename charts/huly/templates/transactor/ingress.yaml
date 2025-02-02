@@ -3,6 +3,9 @@ kind: Ingress
 metadata:
   name: huly-transactor-ingress
   annotations:
+    {{- with .Values.ingress.transactor.annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
     {{- with .Values.ingress.annotations }}
     {{- toYaml . | nindent 4 }}
     {{- end }}

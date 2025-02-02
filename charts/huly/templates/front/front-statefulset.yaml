@@ -59,7 +59,7 @@ spec:
               value: mongodb://mongodb:27017
             - name: STATS_URL
               value: http://stats:4900
-          image: hardcoreeng/front:v0.6.377
+          image: hardcoreeng/front:v0.6.423
           name: front
           ports:
             - containerPort: 8080

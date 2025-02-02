@@ -6,6 +6,9 @@ metadata:
     {{- with .Values.ingress.stats.annotations }}
     {{- toYaml . | nindent 4 }}
     {{- end }}
+    {{- with .Values.ingress.annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
 spec:
   tls:
     - hosts:

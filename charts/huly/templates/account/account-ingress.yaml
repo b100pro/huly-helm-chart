@@ -3,7 +3,10 @@ kind: Ingress
 metadata:
   name: huly-account-ingress
   annotations:
-    {{- with .Values.ingress.rekoni.annotations }}
+    {{- with .Values.ingress.account.annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+    {{- with .Values.ingress.annotations }}
     {{- toYaml . | nindent 4 }}
     {{- end }}
 spec:
