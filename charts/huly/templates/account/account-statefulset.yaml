@@ -46,7 +46,7 @@ spec:
             - name: SERVER_SECRET
               value: {{ .Values.account.serverSecret }}
             - name: TRANSACTOR_URL
-              value: ws://transactor;wss://{{ .Values.ingress.transactor.domain }}/
+              value: wss://{{ .Values.ingress.transactor.domain }}/
             - name: DB_URL
               value: mongodb://mongodb:27017
           image: hardcoreeng/account:v0.6.423

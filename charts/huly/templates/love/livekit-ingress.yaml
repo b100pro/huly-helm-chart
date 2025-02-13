@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: huly-livekit-ingress
+  annotations:
+    {{- with .Values.ingress.livekit.annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+    {{- with .Values.ingress.annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+spec:
+  tls:
+    - hosts:
+        - {{ .Values.ingress.livekit.domain }}
+      secretName: {{ regexReplaceAll "\\." .Values.ingress.livekit.domain "-" }}-tls
+  rules:
+    - host: {{ .Values.ingress.livekit.domain }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: livekit-livekit-server
+                port:
+                  number: 80
