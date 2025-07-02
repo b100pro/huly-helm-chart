@@ -11,6 +11,6 @@ set below values and install the helm chart
 - `account.serverSecret`
 
 ```bash
-helm repo add huly https://raw.githubusercontent.com/logi-camp/huly-helm-chart/refs/heads/main
+helm repo add huly https://raw.githubusercontent.com/b100pro/huly-helm-chart/refs/heads/main
 helm install huly -n huly huly/huly
 ```
