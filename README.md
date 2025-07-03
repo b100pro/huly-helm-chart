@@ -1,6 +1,6 @@
-## Helm chart for huly project management application
+## Helm chart for [huly](https://huly.io/) project management application
 
-set below values and install the helm chart
+set the below values and install the helm chart
 
 - `ingress.domain`
 - `ingress.collaborator.domain`
