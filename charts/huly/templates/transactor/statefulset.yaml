@@ -64,7 +64,7 @@ spec:
                 secretKeyRef:
                   name: huly-secret
                   key: STORAGE_CONFIG
-          image: hardcoreeng/transactor:v0.6.423
+          image: "{{ .Values.image.registry }}/transactor:{{ .Values.image.tag }}"
           name: transactor
           ports:
             - containerPort: 3333

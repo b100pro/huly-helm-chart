@@ -1,3 +1,7 @@
+image:
+  registry: hardcoreeng
+  tag: v0.6.423
+
 account:
   serverSecret: <change-me>
 ingress:

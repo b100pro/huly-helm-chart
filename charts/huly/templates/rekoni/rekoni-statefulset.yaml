@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: rekoni
-          image: hardcoreeng/rekoni-service:v0.6.423
+          image: "{{ .Values.image.registry }}/rekoni-service:{{ .Values.image.tag }}"
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 4004

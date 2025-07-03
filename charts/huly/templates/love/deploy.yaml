@@ -67,7 +67,7 @@ spec:
               value: myapikey
             - name:  LIVEKIT_API_SECRET
               value: Wie3hoongaecuku5aiCha9paesh4ba6u
-          image: hardcoreeng/love:v0.6.423
+          image: "{{ .Values.image.registry }}/love:{{ .Values.image.tag }}"
           name: love
           ports:
             - containerPort: 8096

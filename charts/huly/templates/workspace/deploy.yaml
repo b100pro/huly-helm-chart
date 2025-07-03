@@ -38,7 +38,7 @@ spec:
                 secretKeyRef:
                   name: huly-secret
                   key: SERVER_SECRET
-          image: hardcoreeng/workspace:v0.6.423
+          image: "{{ .Values.image.registry }}/workspace:{{ .Values.image.tag }}"
           name: workspace
           resources:
             limits:
